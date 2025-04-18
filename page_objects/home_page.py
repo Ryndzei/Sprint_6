@@ -35,3 +35,8 @@ class HomePage(BasePage):
     def click_question(self, question_index):
         elements = self.wait_until(ec.presence_of_all_elements_located(HomePageLocators.QUESTION_BUTTONS), timeout=3)
         return elements[question_index].click()
+
+    @allure.step('Получаем текст ответа на вопрос {answer_index}')
+    def get_answer_text(self, answer_index):
+        answer_element = self.find_element(HomePageLocators.QUESTION_ANSWER(answer_index))
+        return answer_element.text if answer_element.is_displayed() else None

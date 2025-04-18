@@ -1,6 +1,5 @@
 import allure
 import pytest
-from locators.home_page_locators import HomePageLocators
 from test_data import HomePageAnswers
 from page_objects.home_page import HomePage
 from urls import *
@@ -23,10 +22,10 @@ class TestHomePageQuestions:
         ]
     )
     def test_faq_click_first_question_show_answer(self, driver, question, answer, expected_answer):
-        driver.get(BASE_URL)
         home_page = HomePage(driver)
+        home_page.open(BASE_URL)
         home_page.accept_cookie_click()
         home_page.click_question(question_index=question)
-        answer = home_page.find_element(HomePageLocators.QUESTION_ANSWER(answer_index=answer))
+        answer_text = home_page.get_answer_text(answer_index=answer)
 
-        assert answer.is_displayed() and answer.text == expected_answer, 'Ответ на вопрос не совпадает с ОР'
+        assert answer_text == expected_answer, 'Ответ на вопрос не совпадает с ОР'
