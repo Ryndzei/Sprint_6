@@ -19,7 +19,8 @@ class TestHomePageLogo:
     @allure.title('Проверка на успешный редирект на главную страницу Я.Самоката по нажатию на слово Самокат в логотипе')
     def test_successful_redirect_to_main_page_on_click_scooter_logo(self, driver):
         order_page = OrderPage(driver)
+        home_page = HomePage(driver)
         order_page.open(ORDER_URL)
-        order_page.click_scooter_logo()
+        home_page.click_scooter_logo()
 
-        assert BASE_URL == order_page.get_current_url(), "Не произошёл переход на главную страницу самоката"
+        assert BASE_URL == home_page.get_current_url(), "Не произошёл переход на главную страницу самоката"

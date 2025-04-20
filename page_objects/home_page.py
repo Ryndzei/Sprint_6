@@ -1,5 +1,6 @@
 import allure
 from locators.home_page_locators import HomePageLocators
+from locators.base_page_locators import BasePageLocators
 from selenium.webdriver.support import expected_conditions as ec
 from page_objects.base_page import BasePage
 from urls import DZEN_URL
@@ -22,10 +23,13 @@ class HomePage(BasePage):
     def accept_cookie_click(self):
         self.find_element(HomePageLocators.ACCEPT_COOKIE_BUTTON).click()
 
-    @allure.step('Переключаемся на новую вкладку')
-    def switch_to_new_window(self):
-        windows = self.driver.window_handles
-        self.driver.switch_to.window(windows[-1])
+    @allure.step('Кликаем в логотипе на слово самокат')
+    def click_scooter_logo(self):
+        self.find_element(BasePageLocators.SCOOTER_LOGO).click()
+
+    @allure.step('Кликаем в логотипе на слово Яндекс')
+    def click_yandex_logo(self):
+        self.find_element(BasePageLocators.YANDEX_LOGO).click()
 
     @allure.step('Ждем пока страница редиректа прогрузится')
     def wait_until_url_contains_dzen(self, timeout=10):
