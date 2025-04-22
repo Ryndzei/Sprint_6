@@ -5,9 +5,6 @@ from page_objects.base_page import BasePage
 
 class OrderPage(BasePage):
 
-    def __init__(self, driver):
-        super().__init__(driver)
-
     @allure.step('Заполняем поле Имя валидным значением')
     def set_first_name(self, first_name):
         self.find_element(OrderPageLocators.NAME_INPUT).send_keys(first_name)

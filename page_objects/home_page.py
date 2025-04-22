@@ -8,9 +8,6 @@ from urls import DZEN_URL
 
 class HomePage(BasePage):
 
-    def __init__(self, driver):
-        super().__init__(driver)
-
     @allure.step('Кликаем по кнопке Заказать вверху страницы')
     def click_top_order_button(self):
         self.find_element(HomePageLocators.TOP_ORDER_BUTTON).click()
