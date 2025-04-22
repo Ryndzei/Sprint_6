@@ -1,7 +1,6 @@
 import allure
 import pytest
 from test_data import HomePageAnswers
-from page_objects.home_page import HomePage
 from urls import *
 
 
@@ -21,8 +20,7 @@ class TestHomePageQuestions:
             (7, 7, HomePageAnswers.answer_8),
         ]
     )
-    def test_faq_click_first_question_show_answer(self, driver, question, answer, expected_answer):
-        home_page = HomePage(driver)
+    def test_faq_click_first_question_show_answer(self, question, answer, expected_answer, home_page):
         home_page.open(BASE_URL)
         home_page.accept_cookie_click()
         home_page.click_question(question_index=question)
