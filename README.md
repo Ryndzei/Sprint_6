@@ -1,4 +1,4 @@
-# Sprint_6
+# Yandex Scooter Tests
 Тестирование сервиса [ЯндексСамокат](https://qa-scooter.praktikum-services.ru/)
 
 Были выполнены проверки по следующим сценариям:
