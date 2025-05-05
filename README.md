@@ -1,4 +1,4 @@
-# Yandex Scooter Tests
+# Yandex Scooter UI Tests
 Тестирование сервиса [ЯндексСамокат](https://qa-scooter.praktikum-services.ru/) по Page Object Model
 
 Были выполнены проверки по следующим сценариям:
